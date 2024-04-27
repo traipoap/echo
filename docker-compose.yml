@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  fiber:
+    container_name: echo
+    image: ghcr.io/traipoap/echo:latest
+    build: 
+      context: .
+    expose:
+      - 8080
+    networks:
+      - proxy
+      
+networks:
+  proxy:
+    external: true
