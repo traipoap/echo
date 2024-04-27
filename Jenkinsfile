@@ -14,7 +14,14 @@ pipeline {
                     }
                }
             }
-       }
+        }
+        
+        stage('SonarQube Analysis') {
+            def mvn = tool 'Default Maven';
+            withSonarQubeEnv() {
+                sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=traipoap_simple-java-maven-app_bafc0a0e-f87f-4474-a1cf-b3e1d6a7fbc5 -Dsonar.projectName='simple-java-maven-app'"
+            }
+        }
 
         stage('Build, Push, and Deploy') {
             steps {
