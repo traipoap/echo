@@ -32,6 +32,6 @@ spec:
             memory: 256Mi
       automountServiceAccountToken: false
       imagePullSecrets:
-      - name: gitlab-registry
+      - name: github-registry
       serviceAccountName: container-registry
       restartPolicy: Always
