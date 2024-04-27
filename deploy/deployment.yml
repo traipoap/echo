@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo
+  namespace: app
+  labels:
+    argocd.argoproj.io/instance: echo
+    role: admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo
+  template:
+    metadata:
+      labels:
+        app: echo
+    spec:
+      containers:
+      - name: echo
+        image: ghcr.io/traipoap/echo:latest
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      automountServiceAccountToken: false
+      imagePullSecrets:
+      - name: gitlab-registry
+      serviceAccountName: container-registry
+      restartPolicy: Always
