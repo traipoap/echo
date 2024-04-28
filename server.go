@@ -112,11 +112,12 @@ func main() {
 	h := CustomerHandler{}
 	h.Initialize()
 
-	e.GET("/customers", h.GetAllCustomer)
-	e.POST("/customers", h.SaveCustomer)
-	e.GET("/customers/:id", h.GetCustomer)
-	e.PUT("/customers/:id", h.UpdateCustomer)
-	e.DELETE("/customers/:id", h.DeleteCustomer)
+	customerGroup := e.Group("/custimers")
+	customerGroup.POST("", h.SaveCustomer)     // C
+	customerGroup.GET("", h.GetAllCustomer)    // R
+	customerGroup.GET("/:id", h.GetCustomer)   // R ID
+	customerGroup.PUT("", h.UpdateCustomer)    // U
+	customerGroup.DELETE("", h.DeleteCustomer) // D
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
