@@ -14,7 +14,11 @@ pipeline {
 
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh "sonar-scanner -Dsonar.projectKey=local -Dsonar.sources=. -Dsonar.host.url=https://sonarqube.local.com"
+                    sh "sonar-scanner \
+                        -Dsonar.projectKey=local \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarqube.local.com \
+                        -Dsonar.token=sqp_9679a90e7ce5f23e1f1d7fb4ad136fe22aa65066"
                 }
             }
         }
