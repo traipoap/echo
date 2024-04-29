@@ -5,6 +5,13 @@ pipeline {
         DOCKER_REGISTRY_URL = "ghcr.io"
     }
 
+    stage('SonarQube Analysis') {
+        def scannerHome = tool 'SonarScanner';
+        withSonarQubeEnv() {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+    }
+
     stages {
         stage('Login repo') {
             steps {
