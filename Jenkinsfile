@@ -10,10 +10,9 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 sh "sonar-scanner \
-                    -Dsonar.projectKey=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c \
+                    -Dsonar.projectKey=local \
                     -Dsonar.sources=. \
-                    -Dsonar.host.url=http://sonarqube.local.com \
-                    -Dsonar.token=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c"
+                    -Dsonar.host.url=https://sonarqube.local.com"
             }
         }
 
