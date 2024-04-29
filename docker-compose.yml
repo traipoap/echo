@@ -1,5 +1,5 @@
 services:
-  fiber:
+  echo:
     container_name: echo
     image: ghcr.io/traipoap/echo:latest
     build: 
