@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   name: echo-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /customers
 spec:
   ingressClassName: nginx
   rules:
     - host: echo.local.com
       http:
         paths:
-          - path: /customers
+          - path: /
             pathType: Prefix
             backend:
               service:
