@@ -9,7 +9,7 @@ pipeline {
 
         stage('SonarQube analysis') {
             def scannerHome = tool 'SonarScanner 4.0';
-            withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
+            steps {
                 sh "sonar-scanner \
                     -Dsonar.projectKey=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c \
                     -Dsonar.sources=. \
