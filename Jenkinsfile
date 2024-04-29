@@ -16,10 +16,10 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar') {
                     sh "sonar-scanner \
-                        -Dsonar.projectKey=traipoap_echo_4ec9445f-4141-49ee-a12a-0470883778da \
+                        -Dsonar.projectKey=local \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://sonarqube.local.com \
-                        -Dsonar.token=sqp_9679a90e7ce5f23e1f1d7fb4ad136fe22aa65066"
+                        -Dsonar.host.url=https://sonarqube.local.com \
+                        -Dsonar.token=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c"
                 }
             }
         }
