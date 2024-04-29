@@ -11,6 +11,6 @@ RUN go build -v -o /usr/local/bin/app ./...
 
 FROM bitnami/golang:1.22
 WORKDIR /go/src/projec
-COPY --from=builder /go/src/projec /go/src/projec
+COPY --from=builder . /go/src/projec
 
-CMD ["/go/src/projec/app"]
+CMD ["app"]
