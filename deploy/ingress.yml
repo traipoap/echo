@@ -10,7 +10,7 @@ spec:
     - host: echo.local.com
       http:
         paths:
-          - path: /
+          - path: /customers
             pathType: Prefix
             backend:
               service:

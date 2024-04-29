@@ -112,7 +112,7 @@ func main() {
 	h := CustomerHandler{}
 	h.Initialize()
 
-	customerGroup := e.Group("/custimers")
+	customerGroup := e.Group("/customers")
 	customerGroup.POST("", h.SaveCustomer)     // C
 	customerGroup.GET("", h.GetAllCustomer)    // R
 	customerGroup.GET("/:id", h.GetCustomer)   // R ID
