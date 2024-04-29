@@ -12,7 +12,7 @@ pipeline {
                 sh "sonar-scanner \
                     -Dsonar.projectKey=local \
                     -Dsonar.sources=. \
-                    -Dsonar.host.url=https://sonarqube.local.com"
+                    -Dsonar.host.url=http://sonarqube.local.com"
             }
         }
 
