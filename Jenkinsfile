@@ -13,11 +13,8 @@ pipeline {
             }
 
             steps {
-                withSonarQubeEnv() {
-                    sh "sonar-scanner \
-                        -Dsonar.projectKey=local \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=https://sonarqube.local.com"
+                withSonarQubeEnv('sonar') {
+                    sh "sonar-scanner -Dsonar.projectKey=local -Dsonar.sources=. -Dsonar.host.url=https://sonarqube.local.com"
                 }
             }
         }
