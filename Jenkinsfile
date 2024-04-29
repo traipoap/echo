@@ -5,17 +5,18 @@ pipeline {
         DOCKER_REGISTRY_URL = "ghcr.io"
     }
 
-    stage('SonarQube Analysis') {
-        def scannerHome = tool 'SonarScanner';
-        withSonarQubeEnv() {
-            sh "sonar-scanner \
-                -Dsonar.projectKey=local \
-                -Dsonar.sources=. \
-                -Dsonar.host.url=https://sonarqube.local.com"
-        }
-    }
-
     stages {
+
+        stage('SonarQube Analysis') {
+            def scannerHome = tool 'SonarScanner';
+            withSonarQubeEnv() {
+                sh "sonar-scanner \
+                    -Dsonar.projectKey=local \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonarqube.local.com"
+            }
+        }
+        
         stage('Login repo') {
             steps {
                 script {
