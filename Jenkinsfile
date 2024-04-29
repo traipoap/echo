@@ -10,9 +10,14 @@ pipeline {
         stage('SonarQube analysis') {
             def scannerHome = tool 'SonarScanner 4.0';
             withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh "sonar-scanner \
+                    -Dsonar.projectKey=local \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonarqube.local.com \
+                    -Dsonar.token=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c"
             }
         }
+
         stage('Login repo') {
             steps {
                 script {
