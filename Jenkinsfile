@@ -8,15 +8,19 @@ pipeline {
     stages {
 
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'SonarScanner';
-            withSonarQubeEnv() {
-                sh "sonar-scanner \
-                    -Dsonar.projectKey=local \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=https://sonarqube.local.com"
+            environment {
+                scannerHome = tool "sonar4"
+            }
+
+            steps {
+                withSonarQubeEnv() {
+                    sh "sonar-scanner \
+                        -Dsonar.projectKey=local \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarqube.local.com"
+                }
             }
         }
-        
         stage('Login repo') {
             steps {
                 script {
