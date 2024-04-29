@@ -10,7 +10,6 @@ pipeline {
         stage('SonarQube Analysis') {
             environment {
                 scannerHome = tool "sonar4"
-                local = sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c
             }
 
             steps {
