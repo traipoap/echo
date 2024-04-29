@@ -13,4 +13,4 @@ FROM bitnami/golang:1.22
 WORKDIR /go/src/projec
 COPY --from=builder /go/src/projec /go/src/projec
 
-CMD ["app"]
+CMD ["/go/src/projec/app"]
