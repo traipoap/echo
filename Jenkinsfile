@@ -17,14 +17,15 @@ pipeline {
                     '''
             }
         }
+        
         stage('sonar-scanner') {
             steps {
                 sh '''$HOME/.sonar/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner \
-                  -Dsonar.projectKey=local \
-                  -Dsonar.sources=. \
-                  -Dsonar.host.url=http://sonarqube.local.com \
-                  -Dsonar.token=sqp_04943cb1829d2ed4ed9e8a4fa54d39cf88ca5a1c
-                  '''
+                    -Dsonar.projectKey=echo \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonarqube.local.com \
+                    -Dsonar.token=sqp_5f00ff0ecde1969229151faa6b15f64218dcb5f5
+                    '''
             }
         }
 
