@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: echo-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /customers
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
