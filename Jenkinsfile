@@ -32,7 +32,7 @@ pipeline {
         stage('Login repo') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-login-credentials', usernameVariable: 'USER_LOGIN', passwordVariable: 'TOKEN_LOGIN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'registry-RO', usernameVariable: 'USER_LOGIN', passwordVariable: 'TOKEN_LOGIN')]) {
                         sh "docker login ${DOCKER_REGISTRY_URL} -u ${USER_LOGIN} -p ${TOKEN_LOGIN}"
                     }
                }
