@@ -8,7 +8,7 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
@@ -17,7 +17,9 @@ type CustomerHandler struct {
 }
 
 func (h *CustomerHandler) Initialize() {
-	db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
+
+	dsn := "root:plNqOfF@Q/Nm4.[b@tcp(10.0.1.252:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		log.Fatal(err)
