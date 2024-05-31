@@ -9,10 +9,10 @@ RUN go mod download && go mod verify
 COPY server.go .
 RUN go build -v -o /usr/local/bin/app ./...
 
-FROM bitnami/golang:1.22
+FROM amazoncorretto:21.0.3-alpine3.19
 
-WORKDIR /go/src/projec
+WORKDIR /echo
 
-COPY --from=builder /usr/local/bin/app /go/src/projec
+COPY --from=builder /usr/local/bin/app /echo
 
 CMD ["app"]
