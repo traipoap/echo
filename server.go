@@ -1,16 +1,26 @@
 package main
 
 import (
+	"io"
 	"log"
 
+	"html/template"
 	"net/http"
 
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
+
+type TemplateRenderer struct {
+	templates *template.Template
+}
+
+func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+	return t.templates.ExecuteTemplate(w, name, data)
+}
 
 type CustomerHandler struct {
 	DB *gorm.DB // Field DB to Database
@@ -109,6 +119,16 @@ func main() {
 		Format: "time=${time_rfc3339}, remote_ip=${remote_ip}, method=${method}, host=${host}, uri=${uri}, status=${status}, error=${error}, latency_human=${latency_human}\n",
 	}))
 
+	// สร้าง template renderer
+	renderer := &TemplateRenderer{
+		templates: template.Must(template.ParseGlob("frontend/*.html")),
+	}
+	e.Renderer = renderer
+	e.Static("", "frontend")
+	e.GET("/", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "index.html", map[string]interface{}{})
+	})
+
 	h := CustomerHandler{}
 	h.Initialize()
 
@@ -119,5 +139,5 @@ func main() {
 	customerGroup.PUT("", h.UpdateCustomer)        // U
 	customerGroup.DELETE("/:id", h.DeleteCustomer) // D
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":80"))
 }
