@@ -124,7 +124,10 @@ func main() {
 		templates: template.Must(template.ParseGlob("frontend/*.html")),
 	}
 	e.Renderer = renderer
+	e.Static("/assets", "frontend/assets")
+	e.Static("/static", "frontend/static")
 	e.Static("", "frontend")
+
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{})
 	})
