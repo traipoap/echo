@@ -126,7 +126,7 @@ func main() {
 	e.Renderer = renderer
 	e.Static("/assets", "frontend/assets")
 	e.Static("/static", "frontend/static")
-	e.Static("", "frontend")
+	e.Static("/*.html", "frontend")
 
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{})
