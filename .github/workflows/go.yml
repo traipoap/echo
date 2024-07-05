@@ -29,7 +29,14 @@ jobs:
       
   deploy:
     runs-on: self-hosted
+    needs: build
     steps:
-    - name: Deploy
-      run: sudo ./echo
+    - name: Copy binary to appropriate location
+      run: sudo cp echo /usr/local/bin/
+    - name: Reload systemd
+      run: sudo systemctl daemon-reload
+    - name: Restart service
+      run: sudo systemctl restart echo.service
+    - name: Check service status
+      run: sudo systemctl is-active --quiet echo.service
 
