@@ -142,5 +142,5 @@ func main() {
 	customerGroup.PUT("", h.UpdateCustomer)        // U
 	customerGroup.DELETE("/:id", h.DeleteCustomer) // D
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":80"))
 }
