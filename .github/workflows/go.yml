@@ -38,8 +38,7 @@ jobs:
         [Service]
         ExecStart=/usr/local/bin/echo
         Restart=always
-        User=nobody
-        Group=nogroup
+        User=ubuntu
         Environment=PATH=/usr/bin:/usr/local/bin
         WorkingDirectory=/tmp
 
