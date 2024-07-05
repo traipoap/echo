@@ -26,3 +26,10 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Deploy
+      run: ./echo
+
