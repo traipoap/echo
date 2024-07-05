@@ -27,19 +27,16 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
-    - name: Copy binary to appropriate location
-      run: sudo cp echo /usr/local/bin/
     - name: Create or update service file
       run: |
         echo "[Unit]
         Description=Echo Service
-        After=network.target
+        After = syslog.target network.target
 
         [Service]
+        User=ubuntu
         ExecStart=/usr/local/bin/echo
         Restart=always
-        User=ubuntu
-        Environment=PATH=/usr/bin:/usr/local/bin
         WorkingDirectory=/tmp
 
         [Install]
