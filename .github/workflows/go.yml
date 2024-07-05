@@ -36,8 +36,7 @@ jobs:
         [Service]
         User=root
         ExecStart=/usr/bin/sudo /home/ubuntu/echo/echo
-        Restart=always
-        WorkingDirectory=/tmp
+        Type = forking
 
         [Install]
         WantedBy=multi-user.target" | sudo tee /etc/systemd/system/echo.service
