@@ -34,7 +34,7 @@ jobs:
         After = syslog.target network.target
 
         [Service]
-        User=ubuntu
+        User=root
         ExecStart=/usr/bin/sudo /home/ubuntu/echo/echo
         Restart=always
         WorkingDirectory=/tmp
