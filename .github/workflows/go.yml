@@ -34,10 +34,10 @@ jobs:
         After=network.target
         
         [Service]
-        ExecStart=/home/ubuntu/echo/echo
-        ExecReload=/home/ubuntu/echo/echo
-        ExecStop=/home/ubuntu/echo/echo
-        WorkingDirectory=/home/ubuntu/echo
+        ExecStart=/home/ubuntu/actions-runner/_work/echo/echo
+        ExecReload=/home/ubuntu/actions-runner/_work/echo/echo
+        ExecStop=/home/ubuntu/actions-runner/_work/echo/echo
+        WorkingDirectory=/home/ubuntu/actions-runner/_work/echo/echo
         Restart=on-failure
         User=ubuntu
         Group=ubuntu
