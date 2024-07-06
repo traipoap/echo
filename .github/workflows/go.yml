@@ -29,14 +29,19 @@ jobs:
     steps:
     - name: Create or update service file
       run: |
-        echo "[Unit]
+        echo "Unit]
         Description=Echo Service
-        After = syslog.target network.target
-
+        After=network.target
+        
         [Service]
+        ExecStart=/home/ubuntu/echo/echo
+        ExecReload=/home/ubuntu/echo/echo
+        ExecStop=/home/ubuntu/echo/echo
+        WorkingDirectory=/home/ubuntu/echo
+        Restart=on-failure
         User=root
-        ExecStart=/usr/bin/sudo /home/ubuntu/echo/echo
-
+        Group=root
+        
         [Install]
         WantedBy=multi-user.target" | sudo tee /etc/systemd/system/echo.service
     - name: Reload systemd
