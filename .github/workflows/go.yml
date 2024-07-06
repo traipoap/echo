@@ -51,5 +51,5 @@ jobs:
     - name: Restart service
       run: sudo systemctl restart echo.service
     - name: Check service status
-      run: sudo systemctl is-active --quiet echo.service
+      run: sudo systemctl is-active echo.service
 
