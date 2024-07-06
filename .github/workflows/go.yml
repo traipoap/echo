@@ -39,8 +39,8 @@ jobs:
         ExecStop=/home/ubuntu/echo/echo
         WorkingDirectory=/home/ubuntu/echo
         Restart=on-failure
-        User=root
-        Group=root
+        User=ubuntu
+        Group=ubuntu
         
         [Install]
         WantedBy=multi-user.target" | sudo tee /etc/systemd/system/echo.service
