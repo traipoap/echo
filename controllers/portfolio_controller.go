@@ -15,7 +15,10 @@ type PortfolioController struct {
 }
 
 func (pc *PortfolioController) Home(c echo.Context) error {
-	return c.Render(http.StatusOK, "index.html", map[string]interface{}{})
+	project := pc.GetProjects()
+	return c.Render(http.StatusOK, "index.html", map[string]interface{}{
+		"Projects": project,
+	})
 }
 
 func (pc *PortfolioController) Works(c echo.Context) error {
@@ -66,11 +69,4 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 		},
 		// เพิ่ม Project อื่นๆ ตามต้องการ
 	}
-}
-
-func (pc *PortfolioController) HomePage(c echo.Context) error {
-	projects := pc.GetProjects()
-	return c.Render(http.StatusOK, "index.html", map[string]interface{}{
-		"FeaturedProjects": projects[:3], // แสดงเพียง 3 โปรเจกต์แรก
-	})
 }
