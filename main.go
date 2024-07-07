@@ -13,11 +13,6 @@ import (
 func main() {
 	e := echo.New()
 
-	// Serve static files
-	e.Static("/assets", "views/assets")
-	e.Static("/static", "views/static")
-	e.Static("/.html", "views")
-
 	middleware.SetupLoggerMiddleware(e)
 
 	db := config.InitDB()
