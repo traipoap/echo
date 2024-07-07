@@ -21,4 +21,8 @@ func SetupTemplates(e *echo.Echo) {
 		templates: template.Must(template.ParseGlob("views/*.html")),
 	}
 	e.Renderer = renderer
+
+	// Serve static files
+	e.Static("/assets", "views/assets")
+	e.Static("/static", "views/static")
 }
