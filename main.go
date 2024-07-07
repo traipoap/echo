@@ -14,9 +14,9 @@ func main() {
 	e := echo.New()
 
 	// Serve static files
-	e.Static("/assets", "frontend/assets")
-	e.Static("/static", "frontend/static")
-	e.Static("/.html", "frontend")
+	e.Static("/assets", "views/assets")
+	e.Static("/static", "views/static")
+	e.Static("/.html", "views")
 
 	middleware.SetupLoggerMiddleware(e)
 
