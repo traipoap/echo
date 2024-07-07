@@ -60,21 +60,19 @@
     </div>
 
     <div class="featured">
+        {{range .Projects}}
         <div class="item">
-            {{range .Projects}}
-            <div class="item">
-                <img src="{{.ImageURL}}">
-                <div class="details">
-                    <h3>{{.Title}}</h3>
-                    <div class="item-info">
-                        <div class="year-badge">{{.Year}}</div>
-                        <h4>{{.Technology}}</h4>
-                    </div>
-                    <p>{{.Description}}</p>
+            <img src="{{.ImageURL}}">
+            <div class="details">
+                <h3>{{.Title}}</h3>
+                <div class="item-info">
+                    <div class="year-badge">{{.Year}}</div>
+                    <h4>{{.Technology}}</h4>
                 </div>
+                <p>{{.Description}}</p>
             </div>
-            {{end}}
         </div>
+        {{end}}
 
     <footer>
         <div class="socials">
