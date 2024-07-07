@@ -41,16 +41,17 @@
             <a href="/blog">View all</a>
         </div>
         <div class="posts">
+            {{range .Posts}}
             <div class="post-item">
-                <h3>GitLab CI/CD</h3>
+                <h3>{{.Title}}</h3>
                 <div class="info">
-                    <h5>12 Jan 2024</h5>
+                    <h5>{{.Date}}</h5>
                     <h5>|</h5>
-                    <h5>CI/CD, Git, Pipeline</h5>
+                    <h5>{{.Tags}}</h5>
                 </div>
-                <p>Setup GitLab Server for Pipeline Automation Release Software.</p>
+                <p>{{.Summary}}</p>
             </div>
-            
+            {{end}}
         </div>
     </div>
 
