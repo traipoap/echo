@@ -16,8 +16,10 @@ type PortfolioController struct {
 
 func (pc *PortfolioController) Home(c echo.Context) error {
 	project := pc.GetProjects()
+	post := pc.Getpost()
 	return c.Render(http.StatusOK, "index.html", map[string]interface{}{
 		"Projects": project,
+		"Posts":    post,
 	})
 }
 
@@ -34,7 +36,10 @@ func (pc *PortfolioController) Work(c echo.Context) error {
 }
 
 func (pc *PortfolioController) Blog(c echo.Context) error {
-	return c.Render(http.StatusOK, "blog.html", map[string]interface{}{})
+	post := pc.Getpost()
+	return c.Render(http.StatusOK, "blog.html", map[string]interface{}{
+		"Posts": post,
+	})
 }
 
 func (pc *PortfolioController) About(c echo.Context) error {
@@ -65,12 +70,35 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 	return []models.Project{
 		{
 			ID:          1,
+			Title:       "Static website with DevOps CI/CD",
+			Year:        2024,
+			Technology:  "Golang",
+			Description: "Fast release.",
+			ImageURL:    "assets/item-1.jpg",
+		},
+		{
+			ID:          2,
 			Title:       "Static website with DevSecOps CI/CD",
 			Year:        2024,
 			Technology:  "Golang",
-			Description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.",
+			Description: "Fast release and security.",
 			ImageURL:    "assets/item-1.jpg",
 		},
 		// เพิ่ม Project อื่นๆ ตามต้องการ
+	}
+}
+
+func (pc *PortfolioController) Getpost() []models.Post {
+	// ในอนาคตคุณอาจจะดึงข้อมูลจากฐานข้อมูล
+	return []models.Post{
+		{
+			ID:      1,
+			Title:   "Prepare Hosts and create K8s cluster.",
+			Date:    time.Date(2024, time.January, 12, 0, 0, 0, 0, time.UTC),
+			Tags:    []string{"CRI-O", "kubelet", "kubectl", "kubeadm"},
+			Summary: "Preparation Hosts before create Kubernetes cluster.",
+			Slug:    "prepare-hosts-create-k8s-cluster",
+		},
+		// เพิ่มข้อมูลอื่นๆ ตามต้องการ
 	}
 }
