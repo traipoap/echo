@@ -22,7 +22,11 @@ func (pc *PortfolioController) Home(c echo.Context) error {
 }
 
 func (pc *PortfolioController) Works(c echo.Context) error {
-	return c.Render(http.StatusOK, "works.html", map[string]interface{}{})
+	project := pc.GetProjects()
+	return c.Render(http.StatusOK, "works.html", map[string]interface{}{
+		"Projects": project,
+	})
+
 }
 
 func (pc *PortfolioController) Work(c echo.Context) error {
