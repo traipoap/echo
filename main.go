@@ -4,6 +4,7 @@ package main
 import (
 	"echo/config"
 	"echo/controllers"
+	"echo/middleware"
 	"echo/routes"
 
 	"github.com/labstack/echo/v4"
@@ -11,6 +12,8 @@ import (
 
 func main() {
 	e := echo.New()
+
+	middleware.SetupLoggerMiddleware(e)
 
 	db := config.InitDB()
 	pc := &controllers.PortfolioController{DB: db}
