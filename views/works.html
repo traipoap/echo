@@ -29,18 +29,19 @@
 
     <div class="content">
         <div class="works-list">
+            {{range .Projects}}
             <div class="item">
-                <img src="assets/item-1.jpg">
+                <img src="{{.ImageURL}}">
                 <div class="details">
-                    <h3>Static website with DevSecOps CI/CD</h3>
+                    <h3>{{.Title}}</h3>
                     <div class="item-info">
-                        <div class="year-badge">2024</div>
-                        <h4>Golang</h4>
+                        <div class="year-badge">{{.Year}}</div>
+                        <h4>{{.Technology}}</h4>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas
-                        aliquam illo maxime.</p>
+                    <p>{{.Description}}</p>
                 </div>
             </div>
+            {{end}}
 
     <footer>
         <div class="socials">
