@@ -93,10 +93,18 @@ func (pc *PortfolioController) Getpost() []models.Post {
 	return []models.Post{
 		{
 			ID:      1,
-			Title:   "Prepare Hosts and create K8s cluster.",
-			Date:    time.Date(2024, time.January, 12, 0, 0, 0, 0, time.UTC),
-			Tags:    []string{"CRI-O", "kubelet", "kubectl", "kubeadm"},
-			Summary: "Preparation Hosts before create Kubernetes cluster.",
+			Title:   "How to create K8s cluster.",
+			Date:    "12 Jan 2024",
+			Tags:    "CRI-O, kubelet, kubectl, kubeadm",
+			Summary: "before create Kubernetes cluster.",
+			Slug:    "prepare-hosts-create-k8s-cluster",
+		},
+		{
+			ID:      2,
+			Title:   "How to create K8s cluster.",
+			Date:    "12 Jan 2024",
+			Tags:    "CRI-O, kubelet, kubectl, kubeadm",
+			Summary: "before create Kubernetes cluster.",
 			Slug:    "prepare-hosts-create-k8s-cluster",
 		},
 		// เพิ่มข้อมูลอื่นๆ ตามต้องการ
