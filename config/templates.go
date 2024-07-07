@@ -23,4 +23,5 @@ func SetupTemplates(e *echo.Echo) {
 	e.Renderer = renderer
 	e.Static("/assets", "frontend/assets")
 	e.Static("/static", "frontend/static")
+	e.Static("/.html", "frontend")
 }
