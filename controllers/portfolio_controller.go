@@ -52,3 +52,25 @@ func (pc *PortfolioController) GetVisitStats(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, stats)
 }
+
+func (pc *PortfolioController) GetProjects() []models.Project {
+	// ในอนาคตคุณอาจจะดึงข้อมูลจากฐานข้อมูล
+	return []models.Project{
+		{
+			ID:          1,
+			Title:       "Static website with DevSecOps CI/CD",
+			Year:        2024,
+			Technology:  "Golang",
+			Description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.",
+			ImageURL:    "assets/item-1.jpg",
+		},
+		// เพิ่ม Project อื่นๆ ตามต้องการ
+	}
+}
+
+func (pc *PortfolioController) HomePage(c echo.Context) error {
+	projects := pc.GetProjects()
+	return c.Render(http.StatusOK, "index.html", map[string]interface{}{
+		"FeaturedProjects": projects[:3], // แสดงเพียง 3 โปรเจกต์แรก
+	})
+}
