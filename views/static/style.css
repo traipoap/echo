@@ -114,6 +114,13 @@ nav .nav-links a.selected{
     margin-bottom: 30px;
 }
 
+.separator .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
 .recent .header h4,
 .separator h4{
     font-size: 20px;
@@ -121,6 +128,10 @@ nav .nav-links a.selected{
 }
 
 .recent .header a{
+    color: #303f9f;
+}
+
+.separator .header a{
     color: #303f9f;
 }
 
