@@ -25,5 +25,5 @@ func SetupTemplates(e *echo.Echo) {
 	// Serve static files
 	e.Static("/assets", "views/assets")
 	e.Static("/static", "views/static")
-	e.Static("/favicon.ico", "views")
+	e.Static("/*.ico", "views")
 }
