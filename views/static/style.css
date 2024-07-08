@@ -182,7 +182,7 @@ nav .nav-links a.selected{
 
 .featured .item img,
 .works-list .item img{
-    width: 320px;
+/*    width: 320px; */
     height: 200px;
     border-radius: 6px;
 }
