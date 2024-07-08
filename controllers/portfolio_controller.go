@@ -74,7 +74,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			Year:        2024,
 			Technology:  "Golang",
 			Description: "Fast release.",
-			ImageURL:    "assets/item-1.jpg",
+			ImageURL:    "assets/item-1.png",
 		},
 		{
 			ID:          2,
@@ -82,7 +82,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			Year:        2024,
 			Technology:  "Golang",
 			Description: "Fast release and security.",
-			ImageURL:    "assets/item-1.jpg",
+			ImageURL:    "assets/item-1.png",
 		},
 		// เพิ่ม Project อื่นๆ ตามต้องการ
 	}
