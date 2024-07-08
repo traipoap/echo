@@ -70,18 +70,18 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 	return []models.Project{
 		{
 			ID:          1,
-			Title:       "Static website with DevOps CI/CD",
+			Title:       "Static website with GitHub Action CI/CD",
 			Year:        2024,
 			Technology:  "Golang",
-			Description: "Fast release.",
+			Description: "Fast release mini project on AWS freetier.",
 			ImageURL:    "assets/item-1.png",
 		},
 		{
 			ID:          2,
-			Title:       "Static website with DevSecOps CI/CD",
+			Title:       "Static website with GitHub CI/CD",
 			Year:        2024,
 			Technology:  "Golang",
-			Description: "Fast release and security.",
+			Description: "Fast release Kubernetes project on premise.",
 			ImageURL:    "assets/item-1.png",
 		},
 		// เพิ่ม Project อื่นๆ ตามต้องการ
