@@ -19,7 +19,7 @@
         <div class="nav-links">
             <a class="selected" href="/">Home</a>
             <a href="/works">Works</a>
-            <a href="/single-work">Single Work</a>
+            <a href="/experience">Experience</a>
             <a href="/blog">Blog</a>
             <a href="/about">About</a>
         </div>
@@ -64,17 +64,19 @@
 
     <div class="featured">
         {{range .Projects}}
-        <div class="item">
-            <img src="{{.ImageURL}}">
-            <div class="details">
-                <h3>{{.Title}}</h3>
-                <div class="item-info">
-                    <div class="year-badge">{{.Year}}</div>
-                    <h4>{{.Technology}}</h4>
+        <a href="{{.Slug}}">
+            <div class="item">
+                <img src="{{.ImageURL}}">
+                <div class="details">
+                    <h3>{{.Title}}</h3>
+                    <div class="item-info">
+                        <div class="year-badge">{{.Year}}</div>
+                        <h4>{{.Technology}}</h4>
+                    </div>
+                    <p>{{.Description}}</p>
                 </div>
-                <p>{{.Description}}</p>
             </div>
-        </div>
+        </a>
         {{end}}
     </div>
     
