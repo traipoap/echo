@@ -31,8 +31,22 @@ func (pc *PortfolioController) Works(c echo.Context) error {
 
 }
 
-func (pc *PortfolioController) Work(c echo.Context) error {
-	return c.Render(http.StatusOK, "single-work.html", map[string]interface{}{})
+func (pc *PortfolioController) Project1(c echo.Context) error {
+	project := pc.GetProjects()
+	return c.Render(http.StatusOK, "project-1.html", map[string]interface{}{
+		"Projects": project,
+	})
+}
+
+func (pc *PortfolioController) Project2(c echo.Context) error {
+	project := pc.GetProjects()
+	return c.Render(http.StatusOK, "project-2.html", map[string]interface{}{
+		"Projects": project,
+	})
+}
+
+func (pc *PortfolioController) Experience(c echo.Context) error {
+	return c.Render(http.StatusOK, "experience.html", map[string]interface{}{})
 }
 
 func (pc *PortfolioController) Blog(c echo.Context) error {
@@ -75,6 +89,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			Technology:  "Golang",
 			Description: "Fast release mini project on AWS freetier.",
 			ImageURL:    "assets/item-1.png",
+			Slug:        "project-1",
 		},
 		{
 			ID:          2,
@@ -83,6 +98,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			Technology:  "Golang",
 			Description: "Fast release Kubernetes project on premise.",
 			ImageURL:    "assets/item-1.png",
+			Slug:        "project-2",
 		},
 		// เพิ่ม Project อื่นๆ ตามต้องการ
 	}
