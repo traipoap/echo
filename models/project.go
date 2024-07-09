@@ -8,4 +8,5 @@ type Project struct {
 	Technology  string
 	Description string
 	ImageURL    string
+	Slug        string
 }
