@@ -89,7 +89,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			ID:          1,
 			Title:       "Static website with GitHub Action CI/CD",
 			Year:        2024,
-			Technology:  "Golang",
+			Technology:  "AWS, GitHub Action",
 			Description: "Fast release mini project on AWS freetier.",
 			ImageURL:    "assets/item-1.png",
 			Slug:        "project-1",
