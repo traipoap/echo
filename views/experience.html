@@ -42,6 +42,33 @@
         {{end}}
     </div>
 
+    <div class="content">
+        <div class="post-list">
+            {{range .Experiences}}
+            <div class="post-item">
+                <h3>{{.Title}}</h3>
+                <div class="info">
+                    <h5>{{.Date}}</h5>
+                    <h5>|</h5>
+                    <h5>{{.Company}}</h5>
+                </div>
+                <p>{{.Responsibilitie}}</p>
+                <p>{{.Skill}}</p>
+                <p>{{.Achievement}}</p>
+
+                <div class="buttons">
+                    <i class='bx bx-share'></i>
+                    <i class='bx bx-link-alt'></i>
+                    <i class='bx bx-copy'></i>
+                    <i class='bx bx-bookmark-plus'></i>
+                    <button>Read More</button>
+                </div>
+
+            </div>
+            {{end}}
+        </div>
+    </div>
+
     <footer>
         <div class="socials">
             <i class='bx bxl-linkedin-square'></i>
