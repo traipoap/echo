@@ -1,3 +1,4 @@
+// models/post.go
 package models
 
 type Post struct {
