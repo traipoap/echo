@@ -46,7 +46,10 @@ func (pc *PortfolioController) Project2(c echo.Context) error {
 }
 
 func (pc *PortfolioController) Experience(c echo.Context) error {
-	return c.Render(http.StatusOK, "experience.html", map[string]interface{}{})
+	experience := pc.GetExperience()
+	return c.Render(http.StatusOK, "experience.html", map[string]interface{}{
+		"Experiences": experience,
+	})
 }
 
 func (pc *PortfolioController) Blog(c echo.Context) error {
@@ -91,16 +94,7 @@ func (pc *PortfolioController) GetProjects() []models.Project {
 			ImageURL:    "assets/item-1.png",
 			Slug:        "project-1",
 		},
-		{
-			ID:          2,
-			Title:       "Static website with GitHub CI/CD",
-			Year:        2024,
-			Technology:  "Golang",
-			Description: "Fast release Kubernetes project on premise.",
-			ImageURL:    "assets/item-1.png",
-			Slug:        "project-2",
-		},
-		// เพิ่ม Project อื่นๆ ตามต้องการ
+		// เพิ่มข้อมูลอื่นๆ
 	}
 }
 
@@ -115,14 +109,23 @@ func (pc *PortfolioController) Getpost() []models.Post {
 			Summary: "before create Kubernetes cluster.",
 			Slug:    "prepare-hosts-create-k8s-cluster",
 		},
+		// เพิ่มข้อมูลอื่นๆ
+	}
+}
+
+func (pc *PortfolioController) GetExperience() []models.Experience {
+	// ในอนาคตคุณอาจจะดึงข้อมูลจากฐานข้อมูล
+	return []models.Experience{
 		{
-			ID:      2,
-			Title:   "How to create K8s cluster.",
-			Date:    "12 Jan 2024",
-			Tags:    "CRI-O, kubelet, kubectl, kubeadm",
-			Summary: "before create Kubernetes cluster.",
-			Slug:    "prepare-hosts-create-k8s-cluster",
+			ID:         1,
+			Title:      "Cloud Network Administrator",
+			Company:    "360Bizmate",
+			Year:       "2022-Present",
+			Experience: "IT Support Officer, Tier-1 Technical Support Engineer (System), Tier-2 Technical Support Engineer (Network)",
+			Ambition:   "มีเป้าหมายเปลี่ยนสายงานจาก Network ไป DevOps",
+			Strength:   "มีประสบการณ์ทำงานทางด้าน Operation",
+			Slug:       "",
 		},
-		// เพิ่มข้อมูลอื่นๆ ตามต้องการ
+		// เพิ่มข้อมูลอื่นๆ
 	}
 }
