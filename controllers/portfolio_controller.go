@@ -120,7 +120,7 @@ func (pc *PortfolioController) GetExperience() []models.Experience {
 			ID:              1,
 			Title:           "Cloud Network Administrator",
 			Company:         "360Bizmate",
-			Year:            "2022-Present",
+			Year:            "2022",
 			Responsibilitie: "Responsibilitie: ดูแลระบบ Network ภายใน Cloud ทั้งหมด",
 			Skill:           "Skill: Routing, Switching",
 			Achievement:     "Achievement: รักษา Uptime ของเครือข่ายได้สูง",
