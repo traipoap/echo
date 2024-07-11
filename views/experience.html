@@ -28,21 +28,6 @@
     <h1 class="page-title">Experiences</h1>
 
     <div class="content">
-        {{range .Experiences}}
-        <div class="work-info">
-            <div class="year-badge">{{.Year}}</div>
-            <div class="category">
-                <p>{{.Title}}</p>
-            </div>
-        </div>
-            <p>{{.Company}}</p>
-            <p>{{.Responsibilitie}}</p>
-            <p>{{.Skill}}</p>
-            <p>{{.Achievement}}</p>
-        {{end}}
-    </div>
-
-    <div class="content">
         <div class="post-list">
             {{range .Experiences}}
             <div class="post-item">
@@ -55,14 +40,6 @@
                 <p>{{.Responsibilitie}}</p>
                 <p>{{.Skill}}</p>
                 <p>{{.Achievement}}</p>
-
-                <div class="buttons">
-                    <i class='bx bx-share'></i>
-                    <i class='bx bx-link-alt'></i>
-                    <i class='bx bx-copy'></i>
-                    <i class='bx bx-bookmark-plus'></i>
-                    <button>Read More</button>
-                </div>
             </div>
             {{end}}
         </div>
