@@ -7,4 +7,4 @@ COPY . .
 RUN go mod download && go mod verify
 RUN go build -v -o . ./...
 
-CMD ["./echo"]
+CMD ["/go/src/echo/echo"]
