@@ -1,0 +1,8 @@
+Jenkinsfile
+portfolio.db
+.github
+deploy
+.gitattributes
+.gitignore
+docker-compose.yml
+Dockerfile
