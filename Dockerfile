@@ -5,5 +5,5 @@ ENV GOPROXY=https://proxy.golang.org
 
 COPY . .
 RUN go mod download && go mod verify
-RUN go build -v -o . ./...
-CMD ["./echo"]
+RUN go build -v -o /usr/local/bin/app 
+CMD ["app"]
