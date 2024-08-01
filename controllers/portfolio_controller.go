@@ -120,7 +120,7 @@ func (pc *PortfolioController) GetExperience() []models.Experience {
 			ID:      1,
 			Title:   "Cloud Network Administrator",
 			Company: "360Bizmate",
-			Year:    "2022",
+			Year:    "Jan 2022 - Present (2 years 7 months)",
 		},
 		// เพิ่มข้อมูลอื่นๆ
 	}
