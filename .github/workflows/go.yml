@@ -29,7 +29,7 @@ jobs:
     steps:
     - name: Create or update service file
       run: |
-        echo "Unit]
+        echo "[Unit]
         Description=Echo Service
         After=network.target
 
