@@ -32,7 +32,7 @@ jobs:
         echo "Unit]
         Description=Echo Service
         After=network.target
-        
+
         [Service]
         ExecStart=/home/ubuntu/actions-runner/_work/echo/echo/echo
         ExecReload=/home/ubuntu/actions-runner/_work/echo/echo/echo
@@ -41,9 +41,11 @@ jobs:
         Restart=on-failure
         User=ubuntu
         Group=ubuntu
-        
+        StandardOutput=append:/var/log/echo.log
+        StandardError=append:/var/log/echo.error.log
+
         [Install]
-        WantedBy=multi-user.target" | sudo tee /etc/systemd/system/echo.service
+        WantedBy=multi-user.target | sudo tee /etc/systemd/system/echo.service
     - name: Reload systemd
       run: sudo systemctl daemon-reload
     - name: Enable service
