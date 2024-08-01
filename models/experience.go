@@ -2,11 +2,8 @@
 package models
 
 type Experience struct {
-	ID              int
-	Title           string
-	Company         string
-	Year            string
-	Responsibilitie string
-	Skill           string
-	Achievement     string
+	ID      int
+	Title   string
+	Company string
+	Year    string
 }
