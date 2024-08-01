@@ -45,7 +45,7 @@ jobs:
         StandardError=append:/var/log/echo.error.log
 
         [Install]
-        WantedBy=multi-user.target | sudo tee /etc/systemd/system/echo.service
+        WantedBy=multi-user.target" | sudo tee /etc/systemd/system/echo.service
     - name: Reload systemd
       run: sudo systemctl daemon-reload
     - name: Enable service
